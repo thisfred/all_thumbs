@@ -60,7 +60,11 @@ won't make me think less of you as a software developer or human being.
 ```
 project/
   src/
+    feature1/
+    feature2/
   tests/
+    feature1/
+    feature2/
 ```
 
 rather than:
