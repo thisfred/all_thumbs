@@ -50,6 +50,9 @@ won't make me think less of you as a software developer or human being.
 
 ## Index
 
+* [Tests](#tests)
+    * [Separate Test Code From Application Code](#separate-test-code-from-application-code)
+
 ### Tests
 
 #### Separate Test Code From Application Code
