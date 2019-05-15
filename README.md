@@ -13,7 +13,7 @@ title:
 https://www.oreilly.com/library/view/implementation-patterns/9780321413093/
 
 It's not that I don't have opinions at architecture/design level, but
-they tend to be a even more dependent on context, so it's not as easy to
+they tend to be even more dependent on context, so it's not as easy to
 formulate them as something pithy and easy to remember.
 
 I will attempt to link to sources where I remember them, because
