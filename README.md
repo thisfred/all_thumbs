@@ -10,7 +10,7 @@ The rules themselves will probably mostly be at the level of
 implementation patterns, as defined by Kent Beck's book of the same
 title:
 
-https://www.oreilly.com/library/view/implementation-patterns/9780321413093/
+[Kent Beck, Implementation Patterns](https://www.oreilly.com/library/view/implementation-patterns/9780321413093/)
 
 It's not that I don't have opinions at architecture/design level, but
 they tend to be even more dependent on context, so it's not as easy to
@@ -51,7 +51,24 @@ won't make me think less of you as a software developer or human being.
 ## Index
 
 * [Tests](#tests)
-    * [Separate Test Code From Application Code](#separate-test-code-from-application-code)
+  * [Separate Test Code From Application Code](#separate-test-code-from-application-code)
+  * [Use dateutil tzinfo objects over pytz ones where possible](#use-dateutil-tzinfo-objects-over-pytz-ones-where-possible)
+
+### Python
+
+#### Use dateutil tzinfo objects over pytz ones where possible
+
+pytz tzinfo objects have a very unusual API, and are too easy to do the
+wrong thing with (the `.replace` method, for instance, does something
+that is almost guaranteed to not be what you want.)
+
+In cases an underlying library forces pytz tzinfo objects on you, take
+great care to read up on how the `.localize` and `.normalize` methods
+work, and generally *don't* use `.replace`.
+
+Sources:
+
+* [Paul Ganssle, Working With Timezones: Everything You Wish You Didn't Need to Know (Pycon 2019)](https://www.youtube.com/watch?v=rz3D8VG_2TY)
 
 ### Tests
 
