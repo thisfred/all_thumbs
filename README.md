@@ -52,23 +52,8 @@ won't make me think less of you as a software developer or human being.
 
 * [Tests](#tests)
   * [Separate Test Code From Application Code](#separate-test-code-from-application-code)
+* [Python](#python)
   * [Use dateutil tzinfo objects over pytz ones where possible](#use-dateutil-tzinfo-objects-over-pytz-ones-where-possible)
-
-### Python
-
-#### Use dateutil tzinfo objects over pytz ones where possible
-
-pytz tzinfo objects have a very unusual API, and are too easy to do the
-wrong thing with (the `.replace` method, for instance, does something
-that is almost guaranteed to not be what you want.)
-
-In cases an underlying library forces pytz tzinfo objects on you, take
-great care to read up on how the `.localize` and `.normalize` methods
-work, and generally *don't* use `.replace`.
-
-Sources:
-
-* [Paul Ganssle, Working With Timezones: Everything You Wish You Didn't Need to Know (Pycon 2019)](https://www.youtube.com/watch?v=rz3D8VG_2TY)
 
 ### Tests
 
@@ -111,3 +96,19 @@ Additionally, in interpreted languages, it becomes easier to package
 and deploy *just* the production code to your server, and not the test
 code, which is good practice and prevents production code ever depending
 on parts of your test code.
+
+### Python
+
+#### Use dateutil tzinfo objects over pytz ones where possible
+
+pytz tzinfo objects have a very unusual API, and are too easy to do the
+wrong thing with (the `.replace` method, for instance, does something
+that is almost guaranteed to not be what you want.)
+
+In cases an underlying library forces pytz tzinfo objects on you, take
+great care to read up on how the `.localize` and `.normalize` methods
+work, and generally *don't* use `.replace`.
+
+Sources:
+
+* [Paul Ganssle, Working With Timezones: Everything You Wish You Didn't Need to Know (Pycon 2019)](https://www.youtube.com/watch?v=rz3D8VG_2TY)
