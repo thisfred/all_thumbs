@@ -53,7 +53,9 @@ won't make me think less of you as a software developer or human being.
 * [Tests](#tests)
   * [Separate Test Code From Application Code](#separate-test-code-from-application-code)
 * [Python](#python)
-  * [Use dateutil tzinfo objects over pytz ones where possible](#use-dateutil-tzinfo-objects-over-pytz-ones-where-possible)
+  * [Use dateutil tzinfo Objects Over pytz Ones Where Possible](#use-dateutil-tzinfo-objects-over-pytz-ones-where-possible)
+* [Code Organization](#code-organization)
+  * [Group Related Objects, Not Similar Objects](#group-related-objects-not-similar-objects)
 
 ### Tests
 
@@ -99,7 +101,7 @@ on parts of your test code.
 
 ### Python
 
-#### Use dateutil tzinfo objects over pytz ones where possible
+#### Use dateutil tzinfo Objects Over pytz Ones Where Possible
 
 pytz tzinfo objects have a very unusual API, and are too easy to do the
 wrong thing with (the `.replace` method, for instance, does something
@@ -112,3 +114,31 @@ work, and generally *don't* use `.replace`.
 Sources:
 
 * [Paul Ganssle, Working With Timezones: Everything You Wish You Didn't Need to Know (Pycon 2019)](https://www.youtube.com/watch?v=rz3D8VG_2TY)
+
+### Code Organization
+
+#### Group Related Objects, Not Similar Objects
+
+```python
+a = 'foo'
+last_char_a = a[-1]
+
+b = 'bar'
+last_char_b = b[-1]
+```
+
+rather than:
+
+```python
+a = 'foo'
+b = 'bar'
+
+last_char_a = a[-1]
+last_char_b = b[-1]
+```
+
+While the second way to write this may look neater, it hides
+opportunities to refactor. Putting variable definitions as close as
+possible to their earliest usage, and clumping their usages together
+makes recurring patterns that can be factored out into functions,
+methods or even classes more obvious.
