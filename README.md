@@ -6,6 +6,13 @@ The goal is for this repository to consist of a living set of documents
 of rules of thumb I currently believe to be helpful in writing
 maintainable software.
 
+It's a place for me to point to (or look up) when someone asks me why
+I made a particular decision, or why I'm advocating for a certain change
+in code review: it's easy for some of these to turn into muscle memory,
+but writing down the rationale, and periodically examining it is a good
+way to check that I'm not doing things just because I've been doing them
+for a long time.
+
 The rules themselves will probably mostly be at the level of
 implementation patterns, as defined by Kent Beck's book of the same
 title:
