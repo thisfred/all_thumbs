@@ -1,5 +1,4 @@
-# All Thumbs
-## A Repository of Rules of Thumb for Writing Maintainable Code
+# All Thumbs - Rules of Thumb for Writing Maintainable Code
 
 ## Mission Statement
 
