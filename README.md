@@ -13,12 +13,6 @@ but writing down the rationale, and periodically examining it is a good
 way to check that I'm not doing things just because I've been doing them
 for a long time.
 
-The rules themselves will probably mostly be at the level of
-implementation patterns, as defined by Kent Beck's book of the same
-title:
-
-[Kent Beck, Implementation Patterns](https://www.oreilly.com/library/view/implementation-patterns/9780321413093/)
-
 It's not that I don't have opinions at architecture/design level, but
 they tend to be even more dependent on context, so it's not as easy to
 formulate them as something pithy and easy to remember.
@@ -63,6 +57,8 @@ won't make me think less of you as a software developer or human being.
   * [Use dateutil tzinfo Objects Over pytz Ones Where Possible](#use-dateutil-tzinfo-objects-over-pytz-ones-where-possible)
 * [Code Organization](#code-organization)
   * [Group Related Objects, Not Similar Objects](#group-related-objects-not-similar-objects)
+  * [Optimize Imports For Readability](#optimize-imports-for-readability)
+  * [Avoid Wildcard Imports](#avoid-wildcard-imports)
 
 ### Tests
 
@@ -149,3 +145,74 @@ opportunities to refactor. Putting variable definitions as close as
 possible to their earliest usage, and clumping their usages together
 makes recurring patterns that can be factored out into functions,
 methods or even classes more obvious.
+
+
+#### Optimize Imports for Readability
+
+Import names so that their use is clear and not repetitive. For
+instance:
+
+```python
+from datetime import datetime, timedelta
+
+now = datetime.now() + timedelta(days=5)
+```
+
+rather than:
+
+```python
+import datetime
+
+now = datetime.datetime.now() + datetime.timedelta(days=5)
+```
+
+Blanket recommendations to always import whole modules, or always
+explicitly import everything you need explicitly from the module it's
+defined in are too rigid, in my opinion.
+
+The other side of this is: when defining classes and functions you
+expect to be used by others, give thought to how they will be imported
+and used when naming them and the modules they are in, and try to
+minimize repetition between all the elements of the full
+namespace/import path where possible. So `accounting.models.Ledger`,
+rather than `accounting.accounting_models.LedgerModel`: This gives users
+of your code the choice to import and use the model as just `Ledger`
+where that name is unambiguous, but if there are other things named
+`Ledger` they can use `models.Ledger` or even
+`accounting.models.Ledger`.
+
+Whether you have any choice in the way you import is language dependent,
+but it's true for at least Python and Scala. Giving thought to naming of
+modules is always recommended.
+
+See also: [Avoid Wildcard Imports](#avoid-wildcard-imports)
+
+#### Avoid Wildcard Imports
+
+```python
+from accounting.models import Ledger
+```
+or:
+
+```python
+from accounting import models
+```
+
+rather than
+
+```python
+from acounting.models import *
+```
+
+Wildcard imports make it harder to see where a name in the code is
+defined just by scanning the code, and make it harder to see where names
+defined in one module are actually used. (Which, among other things,
+makes it harder to see if they are used at *all*, or could be removed.)
+
+If you're using Python, and are the proud owner of an existing code base
+where wildcard imports are prevalent, I recommend this excellent tool as
+a quick and safe way to get rid of them:
+
+<https://github.com/zestyping/star-destroyer>
+
+See also: [Optimize Imports For Readability](#optimize-imports-for-readability)
