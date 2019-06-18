@@ -155,7 +155,7 @@ instance:
 ```python
 from datetime import datetime, timedelta
 
-now = datetime.now() + timedelta(days=5)
+five_days_ago = datetime.now() - timedelta(days=5)
 ```
 
 rather than:
@@ -163,7 +163,7 @@ rather than:
 ```python
 import datetime
 
-now = datetime.datetime.now() + datetime.timedelta(days=5)
+five_days_ago = datetime.datetime.now() - datetime.timedelta(days=5)
 ```
 
 Blanket recommendations to always import whole modules, or always
@@ -198,7 +198,7 @@ or:
 from accounting import models
 ```
 
-rather than
+rather than:
 
 ```python
 from acounting.models import *
