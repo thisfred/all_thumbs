@@ -20,7 +20,7 @@ free to open an issue if you know of a source I should add.)
 I will also try to be very specific about when and where a particular
 rule of thumb does or does not apply. To be very clear up front:
 treating any of these as absolute laws is not going to lead to good
-results: In most cases, existing practices and patterns in your project
+results. In most cases, existing practices and patterns in your project
 or organization should trump these *opinions* wherever they conflict.
 
 Even if you are starting a new project from scratch, try to build
