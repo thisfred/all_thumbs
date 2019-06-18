@@ -13,10 +13,6 @@ but writing down the rationale, and periodically examining it is a good
 way to check that I'm not doing things just because I've been doing them
 for a long time.
 
-It's not that I don't have opinions at architecture/design level, but
-they tend to be even more dependent on context, so it's not as easy to
-formulate them as something pithy and easy to remember.
-
 I will attempt to link to sources where I remember them, because
 it's unlikely that any of these are of my own invention. (Please feel
 free to open an issue if you know of a source I should add.)
