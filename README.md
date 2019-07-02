@@ -98,6 +98,8 @@ and deploy *just* the production code to your server, and not the test
 code, which is good practice and prevents production code ever depending
 on parts of your test code.
 
+See also: <https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code>
+
 ### Python
 
 #### Use dateutil tzinfo Objects Over pytz Ones Where Possible
