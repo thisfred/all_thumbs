@@ -214,3 +214,8 @@ a quick and safe way to get rid of them:
 <https://github.com/zestyping/star-destroyer>
 
 See also: [Optimize Imports For Readability](#optimize-imports-for-readability)
+
+### Links
+
+http://journal.stuffwithstuff.com/2009/06/05/naming-things-in-code/
+http://journal.stuffwithstuff.com/2016/06/16/long-names-are-long/
