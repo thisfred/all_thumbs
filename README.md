@@ -55,6 +55,9 @@ won't make me think less of you as a software developer or human being.
   * [Group Related Objects, Not Similar Objects](#group-related-objects-not-similar-objects)
   * [Optimize Imports For Readability](#optimize-imports-for-readability)
   * [Avoid Wildcard Imports](#avoid-wildcard-imports)
+* [Dependency Management](#dependency-management)
+  * [Keep Dependencies Up to Date](#keep-dependencies-up-to-date)
+* [Miscellaneous Links](#links)
 
 ### Tests
 
@@ -144,7 +147,6 @@ possible to their earliest usage, and clumping their usages together
 makes recurring patterns that can be factored out into functions,
 methods or even classes more obvious.
 
-
 #### Optimize Imports for Readability
 
 Import names so that their use is clear and not repetitive. For
@@ -190,6 +192,7 @@ See also: [Avoid Wildcard Imports](#avoid-wildcard-imports)
 ```python
 from accounting.models import Ledger
 ```
+
 or:
 
 ```python
@@ -214,6 +217,33 @@ a quick and safe way to get rid of them:
 <https://github.com/zestyping/star-destroyer>
 
 See also: [Optimize Imports For Readability](#optimize-imports-for-readability)
+
+### Dependency Management
+
+#### Keep Dependencies Up to Date
+
+Keep the dependencies of your application or service up to date. The
+best way I've seen this work is scheduling a repeating weekly task. This
+task will start to take less time the closer you are to the latest
+released versions of all dependencies.
+
+Rationale: the smaller the delta, the easier the upgrade, and you'll
+want to upgrade to gain the benefits of security fixes if nothing else.
+The fewer dependencies you have to upgrade at once, and the smaller the
+jump in version numbers, the easier it will be to debug the things that
+break if any.
+
+Also if you wait and skip many versions, you won't get the benefit of
+deprecation warnings.
+
+Caveats:
+
+* Make sure critical paths in your application have realistic
+  test coverage, so you'll know if there's anything to fix.
+* I wouldn't necessarily do the same with OS upgrades or language
+  versions: Upgrading those is usually more time intensive, so it may be
+  better to wait a few months for bugs to be caught and fixed, so that
+  you don't have to upgrade and downgrade multiple times.
 
 ### Links
 
